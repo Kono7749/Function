@@ -7,8 +7,14 @@ struct Product {
     int stock_quantity;
 };
 
-float calculate_total_profit(float cost, float sell, int qty);
-float calculate_profit_percentage(float cost, float sell);
+float calculate_total_profit(float cost, float sell, int qty) {
+    return (sell - cost) * qty;
+}
+
+float calculate_profit_percentage(float cost, float sell) {
+    if (cost == 0) return 0;
+    return ((sell - cost) / cost) * 100;
+}
 
 int main() {
     struct Product item;
@@ -45,15 +51,4 @@ int main() {
     }
 
     return 0;
-}
-
-float calculate_total_profit(float cost, float sell, int qty) {
-    float unit_profit = sell - cost;
-    return unit_profit * qty;
-}
-
-float calculate_profit_percentage(float cost, float sell) {
-    if (cost == 0) return 0;
-    float unit_profit = sell - cost;
-    return (unit_profit / cost) * 100;
 }
