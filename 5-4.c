@@ -7,19 +7,7 @@ struct Student {
 };
 
 int find_max_score_id(struct Student students[], int size);
-    int max_score = students[0].score;
-    int max_id = students[0].id;
-    int i;
 
-    for (i = 1; i < size; i++) {
-        if (students[i].score > max_score) {
-            max_score = students[i].score;
-            max_id = students[i].id;
-        }
-    }
-
-    return max_id;
-    
 int main() {
     struct Student class_data[NUM_STUDENTS];
     int top_student_id;
@@ -46,4 +34,19 @@ int main() {
     printf("\nTOP PERFORMER ID: %d\n", top_student_id);
 
     return 0;
+}
+
+int find_max_score_id(struct Student students[], int size) {
+    int max_score = students[0].score;
+    int max_id = students[0].id;
+    int i;
+
+    for (i = 1; i < size; i++) {
+        if (students[i].score > max_score) {
+            max_score = students[i].score;
+            max_id = students[i].id;
+        }
+    }
+
+    return max_id;
 }
